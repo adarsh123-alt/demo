@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 {% block title%} contact {%endblock %}
+{% block head %} 
+  <link rel="stylesheet" href="static/index1.css">
+{% endblock%}
 {% block body%}
-  <form method="POST" action="/contact" class="row g-3 needs-validation" novalidate>
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="static/telephone.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <h2> Contact us </h2>
+  <form method="POST" actin="/contact" class="row g-3 needs-validation" novalidate>
       {% csrf_token %}
     <div class="col-md-4">
       <label for="validationCustom02" class="form-label"> Name</label>
