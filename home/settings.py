@@ -81,9 +81,8 @@ DATABASES = {
 import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(
-        conn_max_age=600,
-
-        ssl_require=True
+        default='postgresql://demo_sos1_user:vp8EdSyOTsS873kQulrKlivXjdkFibva@dpg-d21h4gadbo4c73e5krn0-a/demo_sos1',
+        conn_max_age=600
     )
 }
 
@@ -131,11 +130,18 @@ STATICFILES_DIRS=[
     BASE_DIR,"static"
 ]
 import os
+ALLOWED_HOSTS=['myapp.onrender.com']
 STATIC_ROOT = os.path .join (BASE_DIR,'static')
 STATIC_URL = '/static/'
 MIDDLEWARE=[
-    'django .middleware.security.securityMiddleware',
-    'whitenoise.middleware.whiteNoisemiddleware',
-    ...
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 STATICFILES_STORAGE = "whitenoise.storage.compressManifestStaticFilesStorage"
+
+STATIC_URL = '/static/'
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
