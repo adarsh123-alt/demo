@@ -130,18 +130,22 @@ STATICFILES_DIRS=[
     BASE_DIR,"static"
 ]
 import os
-ALLOWED_HOSTS=['myapp.onrender.com']
-STATIC_ROOT = os.path .join (BASE_DIR,'static')
+
+ALLOWED_HOSTS = ['myapp.onrender.com']
+
 STATIC_URL = '/static/'
-MIDDLEWARE=[
+
+# Source folder: static/
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Output folder: staticfiles/  (for collectstatic)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-STATICFILES_STORAGE = "whitenoise.storage.compressManifestStaticFilesStorage"
 
-STATIC_URL = '/static/'
-
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
