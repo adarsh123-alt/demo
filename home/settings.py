@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-^fkypkvn#e7!_r^lhtb)y$^-toggbtaaeb@*#0lsix0$in^rzt
 DEBUG = os.getenv("DEBUG", "Flase") == "Flase"
 
 # ALLOWED_HOSTS
-ALLOWED_HOSTS = ['myapp.onrender.com'] if not DEBUG else []
+ALLOWED_HOSTS = ['demo-1-vsmd.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
