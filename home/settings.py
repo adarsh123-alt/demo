@@ -12,10 +12,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^fkypkvn#e7!_r^lhtb)y$^-toggbtaaeb@*#0lsix0$in^rzt'
 
 # DEBUG
-DEBUG = os.getenv("DEBUG", "Flase") == "Flase"
+import os
 
-# ALLOWED_HOSTS
-ALLOWED_HOSTS = ['demo-1-vsmd.onrender.com', 'localhost', '127.0.0.1']
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
+ALLOWED_HOSTS = [
+    'demo-1-vsmd.onrender.com',
+    'localhost',
+    '127.0.0.1'
+]
 
 # Application definition
 INSTALLED_APPS = [
